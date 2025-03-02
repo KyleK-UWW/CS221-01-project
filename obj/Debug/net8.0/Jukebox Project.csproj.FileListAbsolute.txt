@@ -1,0 +1,15 @@
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\bin\Debug\net8.0\Jukebox Project.exe
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\bin\Debug\net8.0\Jukebox Project.deps.json
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\bin\Debug\net8.0\Jukebox Project.runtimeconfig.json
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\bin\Debug\net8.0\Jukebox Project.dll
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\bin\Debug\net8.0\Jukebox Project.pdb
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.AssemblyInfoInputs.cache
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.AssemblyInfo.cs
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.csproj.CoreCompileInputs.cache
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.sourcelink.json
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.dll
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\refint\Jukebox Project.dll
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.pdb
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\Jukebox Project.genruntimeconfig.cache
+C:\Users\kylek\OneDrive\Desktop\C#\Jukebox Project\obj\Debug\net8.0\ref\Jukebox Project.dll

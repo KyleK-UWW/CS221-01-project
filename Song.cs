@@ -25,7 +25,8 @@ namespace Jukebox_Project
             get => title;
             set
             {
-                if (string.IsNullOrEmpty(title))
+                
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new Exception("title cannot be null");
                 }
@@ -38,7 +39,7 @@ namespace Jukebox_Project
             get => artist;
             set
             {
-                if (string.IsNullOrEmpty(artist))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new Exception("artist cannot be null");
                 }
@@ -51,7 +52,7 @@ namespace Jukebox_Project
             get => genre;
             set
             {
-                if (string.IsNullOrEmpty(genre))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new Exception("genre cannot be null");
                 }
@@ -63,7 +64,7 @@ namespace Jukebox_Project
             get => releaseYear;
             set
             {
-                if (releaseYear < 1950 || releaseYear > DateTime.Now.Year)
+                if (value < 1950 || value > DateTime.Now.Year)
                 {
                     throw new Exception("Invalid release year");
                 }
@@ -76,7 +77,7 @@ namespace Jukebox_Project
             get => songNum;
             set
             {
-                if (songNum < 0)
+                if (value < 0)
                 {
                     throw new Exception("song number cannot be negative");
                 }
@@ -88,7 +89,7 @@ namespace Jukebox_Project
             get => timesPlayed;
             set
             {
-                if(timesPlayed < 0)
+                if(value < 0)
                 {
                     throw new Exception("invalid times played entry");
                 }
@@ -100,7 +101,7 @@ namespace Jukebox_Project
             get => playtime;
             set
             {
-                if (playtime == 0)
+                if (value == 0)
                 {
                     throw new Exception("Song playtime cannot be zero");
                 }

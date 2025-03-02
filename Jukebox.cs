@@ -7,6 +7,7 @@ public static class Jukebox
     {
         if (!File.Exists(path))
         {
+            Console.WriteLine("File does not exist at: " + Path.GetFullPath(path));
             throw new FileNotFoundException("cannot find file", path);
         }
         int count = 0;
@@ -39,7 +40,7 @@ public static class Jukebox
                 string artist = cols[2];
                 int releaseYear = int.Parse(cols[3]);
                 string genre = cols[4];
-                int songNum = int.Parse(cols[5]); //or playslist[i]+1? would like to refernce array index for value
+                int songNum = i + 1;
                 int timesPlayed = 0; //initial setting for tracking song history..
 
                 playlist[i] = new Song(title, artist, genre, releaseYear, playtime,songNum,timesPlayed);
@@ -59,30 +60,31 @@ public static class Jukebox
         Console.WriteLine("Current playlist:");
         for (int i = 0; i < playlist.Length; i++) 
         {
-            Console.WriteLine($"{playlist[i].SongNum} + \t{playlist[i]}");
+            Console.WriteLine($"{playlist[i].SongNum}\t{playlist[i]}");
 
         }
 
-        Console.WriteLine("\nPlease enter Song Number you wish to play:");
-
-        string input = Console.ReadLine();
-        int selection = int.Parse(input);
-
-        for (int i = 0;i < playlist.Length;i++)
+        
+        while (true)
         {
-            if (selection == playlist[i].SongNum)
+            Console.WriteLine("\nPlease enter Song Number you wish to play:");
+
+            string input = Console.ReadLine();
+            int selection = int.Parse(input)-1;
+
+            if (playlist.Length > selection && selection >= 0)
             {
                 //song trigger happens here inside if{}
-                Console.WriteLine($"\nNow playing:\t{playlist[i]}");
-                playlist[i].TimesPlayed++;
+                Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                playlist[selection].TimesPlayed++;
                 //stretch goal for screen color change based on song genre would happen here...
             }
             else
             {
-                throw new Exception("Invalid Song selection, please try again!");
+                Console.WriteLine("Invalid Song selection, please try again!");
             }
-        }
 
+        }
        
     }
 

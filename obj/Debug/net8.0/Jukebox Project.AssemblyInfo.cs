@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jukebox Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ef76d22b4f64068519150efa42fcf17de0e2d7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jukebox Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jukebox Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
