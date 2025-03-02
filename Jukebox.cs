@@ -39,7 +39,7 @@ public static class Jukebox
                 string artist = cols[2];
                 int releaseYear = int.Parse(cols[3]);
                 string genre = cols[4];
-                int songNum = int.Parse(cols[5]);//or playslist[i]+1? would like to refernce array index for value
+                int songNum = int.Parse(cols[5]); //or playslist[i]+1? would like to refernce array index for value
                 int timesPlayed = 0; //initial setting for tracking song history..
 
                 playlist[i] = new Song(title, artist, genre, releaseYear, playtime,songNum,timesPlayed);
