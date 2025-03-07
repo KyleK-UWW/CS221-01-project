@@ -21,7 +21,7 @@ public static class Jukebox
     }
     private static void Main()
     {
-        string path = "Song-List.csv"; //.csvfile not audio!
+        string path = "Jukebox Playlist.csv"; //.csvfile not audio!
         int lineCount = GetLineCount(path);
 
         Song[] playlist = new Song[lineCount - 1];
