@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Media;
 using Jukebox_Project;
 
 public static class Jukebox
@@ -25,6 +26,8 @@ public static class Jukebox
         int lineCount = GetLineCount(path);
 
         Song[] playlist = new Song[lineCount - 1];
+        string[] wavName = new string[playlist.Length];
+        SoundPlayer player = new SoundPlayer();
 
         try
         {
@@ -71,11 +74,15 @@ public static class Jukebox
 
             string input = Console.ReadLine();
             int selection = int.Parse(input)-1;
+            player.SoundLocation = wavName[selection];
 
             if (playlist.Length > selection && selection >= 0)
             {
-                //song trigger happens here inside if{}
                 Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                player.Play();
+                Console.WriteLine("Press the any key to stop...");
+                Console.ReadKey();
+                player.Stop();
                 playlist[selection].TimesPlayed++;
                 //stretch goal for screen color change based on song genre would happen here...
             }
