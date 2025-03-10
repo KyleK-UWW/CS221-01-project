@@ -43,6 +43,7 @@ public static class Jukebox
                 string artist = cols[2];
                 int releaseYear = int.Parse(cols[3]);
                 string genre = cols[4];
+                wavName[i] = cols[5];
                 int songNum = i + 1;
                 int timesPlayed = 0; //initial setting for tracking song history..
 
