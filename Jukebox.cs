@@ -43,6 +43,7 @@ public static class Jukebox
                 string artist = cols[2];
                 int releaseYear = int.Parse(cols[3]);
                 string genre = cols[4];
+                wavName[i] = cols[5];
                 int songNum = i + 1;
                 int timesPlayed = 0; //initial setting for tracking song history..
 
@@ -63,8 +64,32 @@ public static class Jukebox
         Console.WriteLine("Current playlist:");
         for (int i = 0; i < playlist.Length; i++) 
         {
+            if (playlist[i].Genre == "Alt/Indie")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+            }
+            if (playlist[i].Genre == "Hip-Hop")
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+            if (playlist[i].Genre == "Rock")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+            }
+            if (playlist[i].Genre == "Metal")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            }
+            if (playlist[i].Genre == "Pop")
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+            }
+            if (playlist[i].Genre == "Game")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+            }
             Console.WriteLine($"{playlist[i].SongNum}\t{playlist[i]}");
-
+            Console.ResetColor();
         }
 
         
@@ -78,7 +103,33 @@ public static class Jukebox
 
             if (playlist.Length > selection && selection >= 0)
             {
+                if (playlist[selection].Genre == "Alt/Indie")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                }
+                if (playlist[selection].Genre == "Hip-Hop")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                if (playlist[selection].Genre == "Rock")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                }
+                if (playlist[selection].Genre == "Metal")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                }
+                if (playlist[selection].Genre == "Pop")
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                }
+                if (playlist[selection].Genre == "Game")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                }
                 Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                Console.ResetColor();
+
                 player.Play();
                 Console.WriteLine("Press the any key to stop...");
                 Console.ReadKey();
