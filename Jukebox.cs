@@ -79,6 +79,30 @@ public static class Jukebox
             if (playlist.Length > selection && selection >= 0)
             {
                 Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                if (playlist[selection].Genre == "Alt/Indie")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                }
+                if (playlist[selection].Genre == "Hip-Hop")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                if (playlist[selection].Genre == "Rock")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                }
+                if (playlist[selection].Genre == "Metal")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                }
+                if (playlist[selection].Genre == "Pop")
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                }
+                if (playlist[selection].Genre == "Game")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                }
                 player.Play();
                 Console.WriteLine("Press the any key to stop...");
                 Console.ReadKey();
