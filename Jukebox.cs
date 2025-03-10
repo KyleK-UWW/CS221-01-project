@@ -70,7 +70,7 @@ public static class Jukebox
         
         while (true)
         {
-            Console.WriteLine("\nPlease enter Song Number you wish to play:");
+            Console.WriteLine("\nPlease enter Song Number you wish to play, or enter H for playlist history:");
 
             string input = Console.ReadLine();
             int selection = int.Parse(input)-1;
@@ -86,6 +86,14 @@ public static class Jukebox
                 playlist[selection].TimesPlayed++;
                 //stretch goal for screen color change based on song genre would happen here...
             }
+            //else if (char.Parse(input) == 'H' || char.Parse(input) == 'h')
+            //{
+            //    for (int i = 0; i < playlist.Length; i++)
+            //    {
+            //        Console.WriteLine($"{playlist[i].Title} by {playlist[i].Artist} has been played {playlist[i].TimesPlayed} times today.");
+
+            //    }
+            //}
             else
             {
                 Console.WriteLine("Invalid Song selection, please try again!");
