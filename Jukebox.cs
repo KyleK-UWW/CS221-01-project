@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Media;
+﻿using System.Media;
 using Jukebox_Project;
 
 public static class Jukebox
@@ -22,7 +21,7 @@ public static class Jukebox
     }
     private static void Main()
     {
-        string path = "Jukebox Playlist.csv"; //.csvfile not audio!
+        string path = "Jukebox Playlist.csv";
         int lineCount = GetLineCount(path);
 
         Song[] playlist = new Song[lineCount - 1];
@@ -47,7 +46,7 @@ public static class Jukebox
                 int songNum = i + 1;
                 int timesPlayed = 0; //initial setting for tracking song history..
 
-                playlist[i] = new Song(title, artist, genre, releaseYear, playtime,songNum,timesPlayed);
+                playlist[i] = new Song(title, artist, genre, releaseYear, playtime, songNum, timesPlayed);
 
             }
 
@@ -62,7 +61,7 @@ public static class Jukebox
         }
 
         Console.WriteLine("Current playlist:");
-        for (int i = 0; i < playlist.Length; i++) 
+        for (int i = 0; i < playlist.Length; i++)
         {
             if (playlist[i].Genre == "Alt/Indie")
             {
@@ -92,66 +91,110 @@ public static class Jukebox
             Console.ResetColor();
         }
 
-        
+
         while (true)
         {
             Console.WriteLine("\nPlease enter Song Number you wish to play, or enter H for playlist history:");
 
             string input = Console.ReadLine();
-            int selection = int.Parse(input)-1;
-            player.SoundLocation = wavName[selection];
 
-            if (playlist.Length > selection && selection >= 0)
+            if (Int32.TryParse(input, out int id))
             {
-                if (playlist[selection].Genre == "Alt/Indie")
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                }
-                if (playlist[selection].Genre == "Hip-Hop")
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                }
-                if (playlist[selection].Genre == "Rock")
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                }
-                if (playlist[selection].Genre == "Metal")
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                }
-                if (playlist[selection].Genre == "Pop")
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                }
-                if (playlist[selection].Genre == "Game")
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                }
-                Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
-                Console.ResetColor();
+                int selection = int.Parse(input) - 1;
 
-                player.Play();
-                Console.WriteLine("Press the any key to stop...");
-                Console.ReadKey();
-                player.Stop();
-                playlist[selection].TimesPlayed++;
-                //stretch goal for screen color change based on song genre would happen here...
+
+                if (playlist.Length > selection && selection >= 0)
+                {
+                    player.SoundLocation = wavName[selection];
+                    if (playlist[selection].Genre == "Alt/Indie")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    }
+                    if (playlist[selection].Genre == "Hip-Hop")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                    if (playlist[selection].Genre == "Rock")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                    }
+                    if (playlist[selection].Genre == "Metal")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                    }
+                    if (playlist[selection].Genre == "Pop")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                    }
+                    if (playlist[selection].Genre == "Game")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    }
+                    Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                    Console.ResetColor();
+
+                    player.Play();
+                    Console.WriteLine("Press the any key to stop...");
+                    Console.ReadKey();
+                    player.Stop();
+                    playlist[selection].TimesPlayed++;
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Song selection, please try again!");
+                }
             }
-            //else if (char.Parse(input) == 'H' || char.Parse(input) == 'h')
-            //{
-            //    for (int i = 0; i < playlist.Length; i++)
-            //    {
-            //        Console.WriteLine($"{playlist[i].Title} by {playlist[i].Artist} has been played {playlist[i].TimesPlayed} times today.");
 
-            //    }
-            //}
+            else if (char.TryParse(input, out char key))
+            {
+
+                if (key == 'H' || key == 'h')
+                {
+                    for (int i = 0; i < playlist.Length; i++)
+                    {
+                        if (playlist[i].Genre == "Alt/Indie")
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        }
+                        if (playlist[i].Genre == "Hip-Hop")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                        }
+                        if (playlist[i].Genre == "Rock")
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                        }
+                        if (playlist[i].Genre == "Metal")
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        if (playlist[i].Genre == "Pop")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                        }
+                        if (playlist[i].Genre == "Game")
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        }
+                        Console.WriteLine($"{playlist[i].SongNum}\t{playlist[i].Title} by {playlist[i].Artist} has been played {playlist[i].TimesPlayed} times today.");
+
+                    }
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid entry, please try again!");
+                }
+            }
             else
             {
-                Console.WriteLine("Invalid Song selection, please try again!");
+                Console.WriteLine("Invalid entry, please try again!");
             }
 
+
         }
-       
+
     }
 
 
