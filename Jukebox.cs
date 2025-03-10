@@ -64,8 +64,32 @@ public static class Jukebox
         Console.WriteLine("Current playlist:");
         for (int i = 0; i < playlist.Length; i++) 
         {
+            if (playlist[i].Genre == "Alt/Indie")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+            }
+            if (playlist[i].Genre == "Hip-Hop")
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+            if (playlist[i].Genre == "Rock")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+            }
+            if (playlist[i].Genre == "Metal")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            }
+            if (playlist[i].Genre == "Pop")
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+            }
+            if (playlist[i].Genre == "Game")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+            }
             Console.WriteLine($"{playlist[i].SongNum}\t{playlist[i]}");
-
+            Console.ResetColor();
         }
 
         
@@ -79,7 +103,6 @@ public static class Jukebox
 
             if (playlist.Length > selection && selection >= 0)
             {
-                Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
                 if (playlist[selection].Genre == "Alt/Indie")
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -104,6 +127,9 @@ public static class Jukebox
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                 }
+                Console.WriteLine($"\nNow playing:\t{playlist[selection]}");
+                Console.ResetColor();
+
                 player.Play();
                 Console.WriteLine("Press the any key to stop...");
                 Console.ReadKey();
